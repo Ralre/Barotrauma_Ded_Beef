@@ -224,8 +224,8 @@ namespace Barotrauma.Networking
                 });
                 lastSentToAnyoneTime = events.Find(e => e.ID == lastSentToAnyone)?.CreateTime ?? Timing.TotalTime;
 
-                if (Timing.TotalTime - lastWarningTime > 5.0 && 
-                    Timing.TotalTime - lastSentToAnyoneTime > 10.0 && 
+                if (Timing.TotalTime - lastWarningTime > 30.0 && 
+                    Timing.TotalTime - lastSentToAnyoneTime > 60.0 && 
                     GameMain.GameSession.RoundDuration > NetConfig.RoundStartSyncDuration)
                 {
                     lastWarningTime = Timing.TotalTime;
@@ -436,7 +436,7 @@ namespace Barotrauma.Networking
             else
             {
                 //assume we can get at least 10 events per second through
-                double midRoundSyncTimeOut = uniqueEvents.Count / 10 * server.UpdateInterval.TotalSeconds;
+                double midRoundSyncTimeOut = uniqueEvents.Count / 180 * server.UpdateInterval.TotalSeconds;
                 midRoundSyncTimeOut = Math.Max(midRoundSyncTimeOut, server.ServerSettings.MinimumMidRoundSyncTimeout);
 
                 client.UnreceivedEntityEventCount = (UInt16)uniqueEvents.Count;

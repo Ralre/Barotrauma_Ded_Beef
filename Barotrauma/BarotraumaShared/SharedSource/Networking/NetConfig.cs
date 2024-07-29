@@ -52,12 +52,12 @@ namespace Barotrauma.Networking
         /// <summary>
         /// If a client hasn't received an event that has been succesfully sent to someone within this time, they get kicked
         /// </summary>
-        public const float OldReceivedEventKickTime = 10.0f;
+        public const float OldReceivedEventKickTime = 30.0f;
 
         /// <summary>
         /// If a client hasn't received an event after this time, they get kicked
         /// </summary>
-        public const float OldEventKickTime = 30.0f;
+        public const float OldEventKickTime = 60.0f;
 
         /// <summary>
         /// Interpolates the positional error of a physics body towards zero.
